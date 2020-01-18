@@ -335,7 +335,7 @@ footer {
   border-top: 1px dotted $gray;
   margin: 3em 0 5em 0;
   padding-top: 1em;
-  p {
+  > p {
     width: 80%;
     color: $darkGray;
     font-size: 0.9em;
