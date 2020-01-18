@@ -73,14 +73,14 @@ a {
 	cursor: pointer;
 	color: inherit;
 
+  &:not(.no-decor-link) {
+    border-bottom: 1px dotted $gray;
+  }
+
   &:hover, &:active {
     &:not(.no-decor-active-link) {
       border-bottom: 1px solid $black;
     }
-  }
-
-  &:not(.no-decor-link) {
-    border-bottom: 1px dotted $gray;
   }
 }
 
@@ -301,8 +301,13 @@ footer {
   border-top: 1px solid $gray;
   padding: 20px 0 40px 0;
   text-align: center;
-  > *:not(:last-child) {
-    margin-right: 20px;
+
+  line-height: 2em;
+
+  #media {
+    > *:not(:last-child) {
+      margin-right: 20px;
+    }
   }
 }
 
