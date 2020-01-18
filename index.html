@@ -8,8 +8,8 @@ layout: default
     {% if post.is_section_header %}
 
       <div class="section-header title-subtitle">
-        <h1>{{ post.title }}</h1>
-        <p class="subtitle">{{ post.from | date: "%B %-d, %Y" }} to {{ post.to | date: "%B %-d, %Y" }}</p>
+        <h1><a href="{{ site.baseurl }}{{ post.url }}" class="no-decor-link">{{ post.title }}</a></h1>
+        <p class="subtitle">{{ post.start | date: "%B %-d, %Y" }} to {{ post.end | date: "%B %-d, %Y" }}</p>
         <p>{{ post.content }}</p>
       </div>
 

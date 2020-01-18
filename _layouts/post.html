@@ -5,11 +5,36 @@ layout: default
 <article class="post">
   <div class="title-subtitle">
     <h2>{{ page.title }}</h2>
-    <p class="subtitle">{{ page.date | date: "%B %e, %Y" }}</p>
+    {% if page.is_section_header %}
+      <p class="subtitle">{{ page.start | date: "%B %e, %Y" }} to {{ page.end | date: "%B %e, %Y" }}</p>
+    {% else %}
+      <p class="subtitle">{{ page.date | date: "%B %e, %Y" }}</p>
+    {% endif %}
   </div>
 
   <div class="entry">
     {{ content }}
+
+    {% if page.is_section_header %}
+      <div class="table-of-contents">
+        <h3>Contents</h3>
+
+        {% assign section_start = page.start | date: "%Y-%m-%d" %}
+        {% assign section_end = page.end | date: "%Y-%m-%d" %}
+        {% for post in site.posts reversed %}
+          {% assign post_date = post.date | date: "%Y-%m-%d" %}
+          {% if post.is_section_header == None and post_date >= section_start and post_date <= section_end %}
+            <p><span class="subtitle">{{ post.date | date: "%B %-d, %Y" }}</span> : <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="pagination">
+    {% if page.next.url %}
+      <p><b><a href="{{ page.next.url }}">Next section: {{ page.next.title }}</a></b></p>
+    {% endif %}
   </div>
 
   {% include disqus.html %}

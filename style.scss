@@ -97,6 +97,10 @@ ol {
   list-style-type: decimal;
 }
 
+li {
+  margin: 0.8em 0;
+}
+
 ol ul, ul ol, ul ul, ol ol {
   margin: 0;
 }
@@ -239,6 +243,11 @@ nav {
 // .main
 //
 
+.subtitle {
+  font-style: italic;
+  font-size: 0.8em;
+  color: $gray;
+}
 .title-subtitle {
   // Cuddle title and date
   h1, h2, h3, h4, h5, h6 {
@@ -248,9 +257,6 @@ nav {
   .subtitle {
     margin-top: 0;
     margin-bottom: 1em;
-    font-style: italic;
-    font-size: 0.8em;
-    color: $gray;
   }
 }
 
@@ -328,6 +334,20 @@ footer {
     width: 80%;
     color: $darkGray;
     font-size: 0.9em;
+  }
+}
+
+.pagination {
+  margin-top: 3em;
+  text-align: center;
+  a:after {
+    content: ' →';
+  }
+}
+
+.table-of-contents {
+  p {
+    margin-left: 1em;
   }
 }
 
