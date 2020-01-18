@@ -19,7 +19,7 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 18px/1.4 $font-body;
   color: $darkGray;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
+  font-family: $font-headers;
   color: $darkerGray;
   font-weight: bold;
 
@@ -69,11 +69,18 @@ p {
 }
 
 a {
-  color: $blue;
   text-decoration: none;
 	cursor: pointer;
+	color: inherit;
+
   &:hover, &:active {
-    color: $blue;
+    &:not(.no-decor-active-link) {
+      border-bottom: 1px solid $black;
+    }
+  }
+
+  &:not(.no-decor-link) {
+    border-bottom: 1px dotted $gray;
   }
 }
 
@@ -115,11 +122,6 @@ img {
   max-width: none;
 }
 
-.date {
-  font-style: italic;
-  color: $gray;
-}
-
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;
@@ -156,7 +158,6 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
 
   @include mobile {
     text-align: center;
@@ -194,15 +195,13 @@ img {
   margin: 0;
   color: $darkGray;
   cursor: pointer;
-  font-family: $helveticaNeue;
+  font-family: $font-headers;
   font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
 }
 
 .site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
   font-size: 16px;
 
   @include mobile {
@@ -213,7 +212,7 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
+  font-family: $font-headers;
   font-size: 18px;
 
   @include mobile {
@@ -232,7 +231,6 @@ nav {
 
     @include mobile {
       margin: 0 10px;
-      color: $blue;
     }
   }
 }
@@ -241,9 +239,25 @@ nav {
 // .main
 //
 
+.title-subtitle {
+  // Cuddle title and date
+  h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 0;
+    margin-bottom: 0
+  }
+  .subtitle {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-style: italic;
+    font-size: 0.8em;
+    color: $gray;
+  }
+}
+
 .posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  padding-bottom: 4em;
+  border-bottom: 1px dotted $black;
+
 }
 
 .posts > .post:last-child {
@@ -253,10 +267,12 @@ nav {
 
 .post {
   blockquote {
-    padding-left: 1em;
-    color: $gray;
+    margin: 1em 0;
+    padding-left: 2em;
     font-size: 16px;
     font-style: italic;
+    border-top: 1px solid $lightGray;
+    border-bottom: 1px solid $lightGray;
   }
 
   .comments {
@@ -266,19 +282,42 @@ nav {
   .read-more {
     text-transform: uppercase;
     font-size: 15px;
+    &:after {
+      content: ' ⭢';
+    }
   }
 }
 
 .wrapper-footer {
   margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
 }
 
 footer {
-  padding: 20px 0;
+  border-top: 1px solid $gray;
+  padding: 20px 0 40px 0;
   text-align: center;
+  > *:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.masthead {
+  border-bottom: 1px solid $gray;
+}
+
+.entry:first-letter {
+  font-size: 1.5em;
+}
+
+.entry {
+  line-height: 1.5em;
+
+  p {
+    text-indent: 2em;
+  }
+  p:first-child, blockquote + p {
+    text-indent: 0;
+  }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS

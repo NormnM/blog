@@ -11,13 +11,15 @@ $black: #000;
 $darkerGray: #222;
 $darkGray: #333;
 $gray: #666;
-$lightGray: #eee;
-$white: #cccccc;
+$lightGray: #ddd;
+$white: rgb(245, 245, 245);
+
+
+@import url('https://fonts.googleapis.com/css?family=Asar|Libre+Caslon+Text&display=swap');
 
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+$font-headers: 'Libre Caslon Text', serif;
+$font-body: 'Asar', serif;
 
 // Mobile breakpoints
 @mixin mobile {
