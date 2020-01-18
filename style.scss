@@ -256,7 +256,6 @@ nav {
 
 .posts > .post {
   padding-bottom: 4em;
-  border-bottom: 1px dotted $black;
 
 }
 
@@ -312,11 +311,23 @@ footer {
 .entry {
   line-height: 1.5em;
 
-  p {
-    text-indent: 2em;
-  }
   p:first-child, blockquote + p {
     text-indent: 0;
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  border-top: 1px dotted $gray;
+  margin: 3em 0 5em 0;
+  padding-top: 1em;
+  p {
+    width: 80%;
+    color: $darkGray;
+    font-size: 0.9em;
   }
 }
 
