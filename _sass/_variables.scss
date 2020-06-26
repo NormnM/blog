@@ -15,11 +15,12 @@ $lightGray: #ddd;
 $white: rgb(245, 245, 245);
 
 
-@import url('https://fonts.googleapis.com/css?family=Asar|Libre+Caslon+Text&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Libre+Caslon+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 // Font stacks
 $font-headers: 'Libre Caslon Text', serif;
-$font-body: 'Asar', serif;
+$font-body: 'Merriweather', serif;
 
 // Mobile breakpoints
 @mixin mobile {
